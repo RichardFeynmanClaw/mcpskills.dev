@@ -4,27 +4,27 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mcphub.dev"),
+  metadataBase: new URL("https://mcpskills.dev"),
   title: {
-    default: "MCPHub — The MCP Server Directory",
-    template: "%s | MCPHub",
+    default: "MCPSkills — MCP Servers & AI Skills Directory",
+    template: "%s | MCPSkills",
   },
   description:
-    "Discover, install, and share MCP (Model Context Protocol) servers. The largest directory of MCP servers for Claude, Cursor, and every AI assistant.",
-  keywords: ["MCP", "Model Context Protocol", "Claude", "AI tools", "MCP servers", "AI agents"],
+    "The largest directory of MCP servers, OpenClaw Skills, and AI extensions. Discover, install, and share tools for Claude, Cursor, and every AI assistant.",
+  keywords: ["MCP", "Model Context Protocol", "OpenClaw Skills", "Claude Skills", "AI tools", "MCP servers", "AI agents", "AI extensions"],
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://mcphub.dev",
-    siteName: "MCPHub",
-    title: "MCPHub — The MCP Server Directory",
-    description: "The largest directory of MCP servers for Claude and every AI assistant.",
+    url: "https://mcpskills.dev",
+    siteName: "MCPSkills",
+    title: "MCPSkills — MCP Servers & AI Skills Directory",
+    description: "The largest directory of MCP servers, OpenClaw Skills, and AI extensions.",
     images: [{ url: "/og.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "MCPHub — The MCP Server Directory",
-    description: "Discover, install, and share MCP servers.",
+    title: "MCPSkills — MCP Servers & AI Skills Directory",
+    description: "Discover MCP servers, OpenClaw Skills, and AI extensions.",
   },
   robots: { index: true, follow: true },
 };

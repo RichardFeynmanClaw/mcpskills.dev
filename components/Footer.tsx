@@ -11,10 +11,10 @@ export default function Footer() {
           <div>
             <Link href="/" className="flex items-center gap-2 font-bold text-xl mb-3">
               <span className="bg-brand-600 text-white rounded-lg p-1"><Zap size={16} /></span>
-              <span className="gradient-text">MCPHub</span>
+              <span className="gradient-text">MCPSkills</span>
             </Link>
             <p className="text-[#8888aa] text-sm leading-relaxed">
-              The largest directory of MCP servers. Find, install, and share tools for Claude and every AI assistant.
+              The largest directory of MCP servers, OpenClaw Skills, and AI extensions — for Claude and every AI assistant.
             </p>
           </div>
           <div>
@@ -33,10 +33,11 @@ export default function Footer() {
             <h4 className="font-semibold text-sm mb-3 text-white">Resources</h4>
             <ul className="space-y-2">
               {[
+                { href: "/skills", label: "OpenClaw Skills" },
                 { href: "/blog", label: "Blog" },
                 { href: "/blog/what-is-mcp", label: "What is MCP?" },
                 { href: "/blog/getting-started-mcp-guide", label: "Getting Started" },
-                { href: "/submit", label: "Submit a Server" },
+                { href: "/submit", label: "Submit" },
               ].map((l) => (
                 <li key={l.href}>
                   <Link href={l.href} className="text-[#8888aa] hover:text-white text-sm transition-colors">
@@ -76,7 +77,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-10 pt-6 border-t border-[#1e1e2e] flex flex-col sm:flex-row justify-between items-center gap-4 text-[#8888aa] text-xs">
-          <p>© 2025 MCPHub. Not affiliated with Anthropic.</p>
+          <p>© 2025 MCPSkills. Not affiliated with Anthropic or OpenClaw.</p>
           <p>
             Built with ❤️ for the MCP community ·{" "}
             <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">

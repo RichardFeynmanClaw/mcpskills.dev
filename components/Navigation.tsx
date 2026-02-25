@@ -6,7 +6,8 @@ import { Menu, X, Zap } from "lucide-react";
 export default function Navigation() {
   const [open, setOpen] = useState(false);
   const links = [
-    { href: "/servers", label: "Servers" },
+    { href: "/servers", label: "MCP Servers" },
+    { href: "/skills", label: "Skills" },
     { href: "/blog", label: "Blog" },
     { href: "/submit", label: "Submit" },
   ];
@@ -18,7 +19,7 @@ export default function Navigation() {
             <span className="bg-brand-600 text-white rounded-lg p-1">
               <Zap size={18} />
             </span>
-            <span className="gradient-text">MCPHub</span>
+            <span className="gradient-text">MCPSkills</span>
           </Link>
           <div className="hidden md:flex items-center gap-6">
             {links.map((l) => (

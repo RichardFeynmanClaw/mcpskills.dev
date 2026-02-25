@@ -2,66 +2,62 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Zap, Search, BookOpen, Plus } from "lucide-react";
 import ServerCard from "@/components/ServerCard";
+import SkillCard from "@/components/SkillCard";
 import { SERVERS, CATEGORIES, getFeaturedServers, getCategories } from "@/data/servers";
+import { SKILLS, getFeaturedSkills } from "@/data/skills";
 
 export const metadata: Metadata = {
-  title: "MCPHub — The MCP Server Directory",
+  title: "MCPSkills — MCP Servers & AI Skills Directory",
   description:
-    "Discover, install, and share MCP (Model Context Protocol) servers. Browse 60+ servers for Claude, Cursor, Windsurf, and every AI assistant.",
+    "The largest directory of MCP servers and OpenClaw Skills. Browse 80+ tools for Claude, Cursor, Windsurf, and every AI assistant.",
 };
 
 export default function HomePage() {
   const featured = getFeaturedServers();
+  const featuredSkills = getFeaturedSkills();
   const categories = getCategories();
   const totalServers = SERVERS.length;
+  const totalSkills = SKILLS.length;
 
   return (
     <div className="min-h-screen">
       {/* HERO */}
       <section className="relative overflow-hidden py-20 px-4 sm:px-6">
-        {/* background glow */}
         <div
           className="absolute inset-0 -z-10"
-          style={{
-            background:
-              "radial-gradient(ellipse 80% 50% at 50% -20%, #7c3aed33 0%, transparent 70%)",
-          }}
+          style={{ background: "radial-gradient(ellipse 80% 50% at 50% -20%, #7c3aed33 0%, transparent 70%)" }}
         />
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-brand-900/40 border border-brand-700/50 text-brand-300 text-sm px-4 py-2 rounded-full mb-6">
             <Zap size={14} />
-            <span>The Universal Tool Layer for AI Assistants</span>
+            <span>MCP Servers · OpenClaw Skills · AI Extensions</span>
           </div>
           <h1 className="text-4xl sm:text-6xl font-bold leading-tight mb-6">
-            Find the right{" "}
-            <span className="gradient-text">MCP Server</span>
-            <br />
-            for any workflow
+            Supercharge your AI with{" "}
+            <span className="gradient-text">MCP & Skills</span>
           </h1>
           <p className="text-[#8888aa] text-lg sm:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
-            Browse {totalServers}+ MCP (Model Context Protocol) servers. Connect Claude and any AI
-            assistant to databases, APIs, cloud platforms, and developer tools — in minutes.
+            The largest directory of MCP servers and OpenClaw Skills. Connect Claude to any tool,
+            API, or platform — or extend it with specialised skills for DevOps, coding, and more.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Link
-              href="/servers"
-              className="bg-brand-600 hover:bg-brand-500 text-white px-6 py-3 rounded-xl font-medium flex items-center gap-2 transition-colors glow"
-            >
-              Browse All Servers <ArrowRight size={16} />
+            <Link href="/servers" className="bg-brand-600 hover:bg-brand-500 text-white px-6 py-3 rounded-xl font-medium flex items-center gap-2 transition-colors glow">
+              MCP Servers <ArrowRight size={16} />
             </Link>
-            <Link
-              href="/blog/what-is-mcp"
-              className="border border-[#1e1e2e] hover:border-brand-700 text-[#8888aa] hover:text-white px-6 py-3 rounded-xl font-medium flex items-center gap-2 transition-colors"
-            >
+            <Link href="/skills" className="border border-brand-700/60 hover:border-brand-500 bg-brand-900/30 text-brand-300 hover:text-white px-6 py-3 rounded-xl font-medium flex items-center gap-2 transition-colors">
+              <Zap size={16} /> OpenClaw Skills
+            </Link>
+            <Link href="/blog/what-is-mcp" className="border border-[#1e1e2e] hover:border-brand-700 text-[#8888aa] hover:text-white px-6 py-3 rounded-xl font-medium flex items-center gap-2 transition-colors">
               <BookOpen size={16} /> What is MCP?
             </Link>
           </div>
         </div>
 
         {/* Stats row */}
-        <div className="max-w-3xl mx-auto mt-14 grid grid-cols-3 gap-4 text-center">
+        <div className="max-w-3xl mx-auto mt-14 grid grid-cols-4 gap-4 text-center">
           {[
             { value: `${totalServers}+`, label: "MCP Servers" },
+            { value: `${totalSkills}+`, label: "OpenClaw Skills" },
             { value: `${Object.keys(CATEGORIES).length}`, label: "Categories" },
             { value: "Free", label: "Always free" },
           ].map((s) => (
@@ -111,6 +107,30 @@ export default function HomePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {featured.slice(0, 9).map((server) => (
             <ServerCard key={server.slug} server={server} />
+          ))}
+        </div>
+      </section>
+
+      {/* OPENCLAW SKILLS */}
+      <section className="py-12 px-4 sm:px-6 max-w-7xl mx-auto">
+        <div className="flex items-center justify-between mb-2">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-xs font-medium text-brand-400 uppercase tracking-wider">OpenClaw Skills</span>
+              <span className="text-xs bg-brand-900/40 text-brand-300 px-2 py-0.5 rounded-full border border-brand-700/30">New</span>
+            </div>
+            <h2 className="text-xl font-bold">Featured OpenClaw Skills</h2>
+          </div>
+          <Link href="/skills" className="text-brand-400 hover:text-brand-300 text-sm flex items-center gap-1">
+            View all {totalSkills} <ArrowRight size={14} />
+          </Link>
+        </div>
+        <p className="text-[#8888aa] text-sm mb-6">
+          Skills extend Claude with deep domain knowledge — install with one command via <code className="bg-[#12121a] text-brand-300 px-1 rounded">clawhub install</code>
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {featuredSkills.slice(0, 6).map((skill) => (
+            <SkillCard key={skill.slug} skill={skill} />
           ))}
         </div>
       </section>
