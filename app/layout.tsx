@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mcpskills.dev"),
+  metadataBase: new URL("https://mcpskills.app"),
   title: {
     default: "MCPSkills — MCP Servers & AI Skills Directory",
     template: "%s | MCPSkills",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://mcpskills.dev",
+    url: "https://mcpskills.app",
     siteName: "MCPSkills",
     title: "MCPSkills — MCP Servers & AI Skills Directory",
     description: "The largest directory of MCP servers, OpenClaw Skills, and AI extensions.",
@@ -31,11 +32,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    // suppressHydrationWarning: next-themes adds class attr on the client, which would cause a mismatch warning
+    <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen flex flex-col">
-        <Navigation />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <ThemeProvider>
+          <Navigation />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

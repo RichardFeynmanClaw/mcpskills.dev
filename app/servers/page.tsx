@@ -30,7 +30,7 @@ export default function ServersPage({ searchParams }: Props) {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10">
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">MCP Server Directory</h1>
-        <p className="text-[#8888aa]">
+        <p className="text-muted">
           {servers.length} server{servers.length !== 1 ? "s" : ""} · Connect Claude to any tool or API
         </p>
       </div>
@@ -38,13 +38,13 @@ export default function ServersPage({ searchParams }: Props) {
       <div className="flex flex-col sm:flex-row gap-4 mb-8">
         {/* Category filter */}
         <div className="flex items-center gap-2 flex-wrap">
-          <Filter size={16} className="text-[#8888aa]" />
+          <Filter size={16} className="text-muted" />
           <Link
             href="/servers"
             className={`text-xs px-3 py-1.5 rounded-full transition-colors ${
               !category
                 ? "bg-brand-600 text-white"
-                : "bg-[#12121a] border border-[#1e1e2e] text-[#8888aa] hover:text-white"
+                : "bg-card border border-card-border text-muted hover:text-foreground"
             }`}
           >
             All
@@ -58,7 +58,7 @@ export default function ServersPage({ searchParams }: Props) {
                 className={`text-xs px-3 py-1.5 rounded-full transition-colors ${
                   category === cat
                     ? "bg-brand-600 text-white"
-                    : "bg-[#12121a] border border-[#1e1e2e] text-[#8888aa] hover:text-white"
+                    : "bg-card border border-card-border text-muted hover:text-foreground"
                 }`}
               >
                 {info.icon} {info.label}
@@ -70,7 +70,7 @@ export default function ServersPage({ searchParams }: Props) {
 
       {/* Sort */}
       <div className="flex items-center gap-2 mb-6 text-sm">
-        <span className="text-[#8888aa]">Sort:</span>
+        <span className="text-muted">Sort:</span>
         {(["stars", "name", "verified"] as const).map((s) => (
           <Link
             key={s}
@@ -78,7 +78,7 @@ export default function ServersPage({ searchParams }: Props) {
             className={`px-3 py-1 rounded-lg transition-colors ${
               sort === s
                 ? "bg-brand-600 text-white"
-                : "text-[#8888aa] hover:text-white"
+                : "text-muted hover:text-foreground"
             }`}
           >
             {s.charAt(0).toUpperCase() + s.slice(1)}
@@ -93,7 +93,7 @@ export default function ServersPage({ searchParams }: Props) {
       </div>
 
       {servers.length === 0 && (
-        <div className="text-center py-20 text-[#8888aa]">
+        <div className="text-center py-20 text-muted">
           <p className="text-lg">No servers found.</p>
           <Link href="/servers" className="text-brand-400 hover:underline mt-2 inline-block">
             Clear filters

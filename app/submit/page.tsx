@@ -12,7 +12,7 @@ export default function SubmitPage() {
     <div className="max-w-2xl mx-auto px-4 sm:px-6 py-10">
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">Submit Your MCP Server</h1>
-        <p className="text-[#8888aa]">
+        <p className="text-muted">
           Built an MCP server? Get it in front of thousands of developers looking for new tools.
         </p>
       </div>
@@ -22,20 +22,20 @@ export default function SubmitPage() {
           { icon: <Github size={20} />, title: "GitHub Required", desc: "Open-source servers only. Must have a public GitHub repo." },
           { icon: <PackageOpen size={20} />, title: "Any Language", desc: "TypeScript, Python, Go, Rust — we list all of them." },
         ].map((item) => (
-          <div key={item.title} className="bg-[#12121a] border border-[#1e1e2e] rounded-xl p-4 flex gap-3">
+          <div key={item.title} className="bg-card border border-card-border rounded-xl p-4 flex gap-3">
             <div className="text-brand-400 mt-1">{item.icon}</div>
             <div>
-              <p className="text-sm font-medium text-white">{item.title}</p>
-              <p className="text-xs text-[#8888aa] mt-1">{item.desc}</p>
+              <p className="text-sm font-medium text-foreground">{item.title}</p>
+              <p className="text-xs text-muted mt-1">{item.desc}</p>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="bg-[#12121a] border border-[#1e1e2e] rounded-xl p-6">
+      <div className="bg-card border border-card-border rounded-xl p-6">
         <form action="/api/submit" method="POST" className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-white mb-1.5">
+            <label className="block text-sm font-medium text-foreground mb-1.5">
               GitHub URL <span className="text-brand-400">*</span>
             </label>
             <input
@@ -43,18 +43,18 @@ export default function SubmitPage() {
               name="githubUrl"
               required
               placeholder="https://github.com/you/your-mcp-server"
-              className="w-full bg-[#0a0a0f] border border-[#1e1e2e] rounded-lg px-4 py-2.5 text-sm text-white placeholder-[#8888aa] focus:outline-none focus:border-brand-600 transition-colors"
+              className="w-full bg-background border border-card-border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder-muted focus:outline-none focus:border-brand-600 transition-colors"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-white mb-1.5">
+            <label className="block text-sm font-medium text-foreground mb-1.5">
               Category <span className="text-brand-400">*</span>
             </label>
             <select
               name="category"
               required
-              className="w-full bg-[#0a0a0f] border border-[#1e1e2e] rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-600 transition-colors"
+              className="w-full bg-background border border-card-border rounded-lg px-4 py-2.5 text-sm text-foreground focus:outline-none focus:border-brand-600 transition-colors"
             >
               <option value="">Select a category…</option>
               {getCategories().map((cat) => (
@@ -66,7 +66,7 @@ export default function SubmitPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-white mb-1.5">
+            <label className="block text-sm font-medium text-foreground mb-1.5">
               Short Description <span className="text-brand-400">*</span>
             </label>
             <textarea
@@ -75,19 +75,19 @@ export default function SubmitPage() {
               rows={3}
               placeholder="What does your server do? (max 150 chars)"
               maxLength={150}
-              className="w-full bg-[#0a0a0f] border border-[#1e1e2e] rounded-lg px-4 py-2.5 text-sm text-white placeholder-[#8888aa] focus:outline-none focus:border-brand-600 transition-colors resize-none"
+              className="w-full bg-background border border-card-border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder-muted focus:outline-none focus:border-brand-600 transition-colors resize-none"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-white mb-1.5">
+            <label className="block text-sm font-medium text-foreground mb-1.5">
               Your Email (optional)
             </label>
             <input
               type="email"
               name="email"
               placeholder="you@example.com — we'll notify you when listed"
-              className="w-full bg-[#0a0a0f] border border-[#1e1e2e] rounded-lg px-4 py-2.5 text-sm text-white placeholder-[#8888aa] focus:outline-none focus:border-brand-600 transition-colors"
+              className="w-full bg-background border border-card-border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder-muted focus:outline-none focus:border-brand-600 transition-colors"
             />
           </div>
 
@@ -98,7 +98,7 @@ export default function SubmitPage() {
             Submit Server →
           </button>
 
-          <p className="text-xs text-[#8888aa] text-center">
+          <p className="text-xs text-muted text-center">
             We review all submissions. Usually listed within 48 hours.
           </p>
         </form>

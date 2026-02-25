@@ -40,7 +40,7 @@ export default function CategoryPage({ params }: Props) {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10">
       <Link
         href="/servers"
-        className="inline-flex items-center gap-2 text-[#8888aa] hover:text-white text-sm mb-8 transition-colors"
+        className="inline-flex items-center gap-2 text-muted hover:text-foreground text-sm mb-8 transition-colors"
       >
         <ArrowLeft size={16} /> All categories
       </Link>
@@ -50,11 +50,11 @@ export default function CategoryPage({ params }: Props) {
           <span className="text-4xl">{cat.icon}</span>
           <h1 className="text-3xl font-bold">
             {cat.label}{" "}
-            <span className="text-[#8888aa] font-normal text-xl">MCP Servers</span>
+            <span className="text-muted font-normal text-xl">MCP Servers</span>
           </h1>
         </div>
-        <p className="text-[#8888aa] text-lg">{cat.description}</p>
-        <p className="text-sm text-[#8888aa] mt-2">{servers.length} servers available</p>
+        <p className="text-muted text-lg">{cat.description}</p>
+        <p className="text-sm text-muted mt-2">{servers.length} servers available</p>
       </div>
 
       {servers.length > 0 ? (
@@ -64,7 +64,7 @@ export default function CategoryPage({ params }: Props) {
           ))}
         </div>
       ) : (
-        <div className="text-center py-20 text-[#8888aa]">
+        <div className="text-center py-20 text-muted">
           <p className="text-lg mb-4">No servers in this category yet.</p>
           <Link href="/submit" className="text-brand-400 hover:underline">
             Submit the first one →
@@ -72,9 +72,9 @@ export default function CategoryPage({ params }: Props) {
         </div>
       )}
 
-      <div className="mt-12 bg-[#12121a] border border-[#1e1e2e] rounded-xl p-8 text-center">
-        <p className="text-[#8888aa] mb-3">
-          Know an MCP server for <strong className="text-white">{cat.label}</strong> that&apos;s missing?
+      <div className="mt-12 bg-card border border-card-border rounded-xl p-8 text-center">
+        <p className="text-muted mb-3">
+          Know an MCP server for <strong className="text-foreground">{cat.label}</strong> that&apos;s missing?
         </p>
         <Link
           href="/submit"

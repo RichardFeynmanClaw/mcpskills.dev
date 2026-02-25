@@ -35,18 +35,18 @@ export default function SkillsPage({ searchParams }: Props) {
           <span className="text-xs font-medium text-brand-400 uppercase tracking-wider">OpenClaw Skills</span>
         </div>
         <h1 className="text-3xl font-bold mb-2">OpenClaw Skills Directory</h1>
-        <p className="text-[#8888aa] max-w-2xl">
+        <p className="text-muted max-w-2xl">
           Skills extend Claude with specialised knowledge and workflows. Install with one command via{" "}
-          <code className="bg-[#12121a] text-brand-300 px-1 rounded text-sm">clawhub install</code>.
+          <code className="bg-card text-brand-300 px-1 rounded text-sm">clawhub install</code>.
           Browse {SKILLS.length} skills across {categories.length} categories.
         </p>
       </div>
 
       {/* What are skills */}
-      <div className="bg-gradient-to-r from-brand-900/30 to-[#12121a] border border-brand-700/30 rounded-xl p-5 mb-8 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+      <div className="bg-gradient-to-r from-brand-50 dark:from-brand-900/30 to-card border border-brand-200 dark:border-brand-700/30 rounded-xl p-5 mb-8 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
         <div className="flex-1">
-          <p className="text-sm font-medium text-white mb-1">What are OpenClaw Skills?</p>
-          <p className="text-sm text-[#8888aa]">
+          <p className="text-sm font-medium text-foreground mb-1">What are OpenClaw Skills?</p>
+          <p className="text-sm text-muted">
             Skills are specialised instruction sets that give Claude deep expertise in specific domains — DevOps, coding, productivity, and more. Unlike MCP servers (which connect to APIs), skills enhance Claude&apos;s reasoning and workflow knowledge.
           </p>
         </div>
@@ -62,11 +62,11 @@ export default function SkillsPage({ searchParams }: Props) {
 
       {/* Category filter */}
       <div className="flex items-center gap-2 mb-4 flex-wrap">
-        <Filter size={16} className="text-[#8888aa]" />
+        <Filter size={16} className="text-muted" />
         <Link
           href="/skills"
           className={`text-xs px-3 py-1.5 rounded-full transition-colors ${
-            !category ? "bg-brand-600 text-white" : "bg-[#12121a] border border-[#1e1e2e] text-[#8888aa] hover:text-white"
+            !category ? "bg-brand-600 text-white" : "bg-card border border-card-border text-muted hover:text-foreground"
           }`}
         >
           All
@@ -78,7 +78,7 @@ export default function SkillsPage({ searchParams }: Props) {
               key={cat}
               href={`/skills?category=${cat}`}
               className={`text-xs px-3 py-1.5 rounded-full transition-colors ${
-                category === cat ? "bg-brand-600 text-white" : "bg-[#12121a] border border-[#1e1e2e] text-[#8888aa] hover:text-white"
+                category === cat ? "bg-brand-600 text-white" : "bg-card border border-card-border text-muted hover:text-foreground"
               }`}
             >
               {info.icon} {info.label}
@@ -89,12 +89,12 @@ export default function SkillsPage({ searchParams }: Props) {
 
       {/* Sort */}
       <div className="flex items-center gap-2 mb-6 text-sm">
-        <span className="text-[#8888aa]">Sort:</span>
+        <span className="text-muted">Sort:</span>
         {(["installs", "stars", "name"] as const).map((s) => (
           <Link
             key={s}
             href={category ? `/skills?category=${category}&sort=${s}` : `/skills?sort=${s}`}
-            className={`px-3 py-1 rounded-lg transition-colors ${sort === s ? "bg-brand-600 text-white" : "text-[#8888aa] hover:text-white"}`}
+            className={`px-3 py-1 rounded-lg transition-colors ${sort === s ? "bg-brand-600 text-white" : "text-muted hover:text-foreground"}`}
           >
             {s.charAt(0).toUpperCase() + s.slice(1)}
           </Link>

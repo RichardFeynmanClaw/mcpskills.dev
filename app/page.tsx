@@ -25,10 +25,10 @@ export default function HomePage() {
       <section className="relative overflow-hidden py-20 px-4 sm:px-6">
         <div
           className="absolute inset-0 -z-10"
-          style={{ background: "radial-gradient(ellipse 80% 50% at 50% -20%, #7c3aed33 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse 80% 50% at 50% -20%, #7c3aed22 0%, transparent 70%)" }}
         />
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-brand-900/40 border border-brand-700/50 text-brand-300 text-sm px-4 py-2 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 bg-brand-50 dark:bg-brand-900/40 border border-brand-200 dark:border-brand-700/50 text-brand-700 dark:text-brand-300 text-sm px-4 py-2 rounded-full mb-6">
             <Zap size={14} />
             <span>MCP Servers · OpenClaw Skills · AI Extensions</span>
           </div>
@@ -36,7 +36,7 @@ export default function HomePage() {
             Supercharge your AI with{" "}
             <span className="gradient-text">MCP & Skills</span>
           </h1>
-          <p className="text-[#8888aa] text-lg sm:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-muted text-lg sm:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
             The largest directory of MCP servers and OpenClaw Skills. Connect Claude to any tool,
             API, or platform — or extend it with specialised skills for DevOps, coding, and more.
           </p>
@@ -44,10 +44,10 @@ export default function HomePage() {
             <Link href="/servers" className="bg-brand-600 hover:bg-brand-500 text-white px-6 py-3 rounded-xl font-medium flex items-center gap-2 transition-colors glow">
               MCP Servers <ArrowRight size={16} />
             </Link>
-            <Link href="/skills" className="border border-brand-700/60 hover:border-brand-500 bg-brand-900/30 text-brand-300 hover:text-white px-6 py-3 rounded-xl font-medium flex items-center gap-2 transition-colors">
+            <Link href="/skills" className="border border-brand-300 dark:border-brand-700/60 hover:border-brand-500 bg-brand-50 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 hover:text-brand-800 dark:hover:text-foreground px-6 py-3 rounded-xl font-medium flex items-center gap-2 transition-colors">
               <Zap size={16} /> OpenClaw Skills
             </Link>
-            <Link href="/blog/what-is-mcp" className="border border-[#1e1e2e] hover:border-brand-700 text-[#8888aa] hover:text-white px-6 py-3 rounded-xl font-medium flex items-center gap-2 transition-colors">
+            <Link href="/blog/what-is-mcp" className="border border-card-border hover:border-brand-500 text-muted hover:text-foreground px-6 py-3 rounded-xl font-medium flex items-center gap-2 transition-colors">
               <BookOpen size={16} /> What is MCP?
             </Link>
           </div>
@@ -61,9 +61,9 @@ export default function HomePage() {
             { value: `${Object.keys(CATEGORIES).length}`, label: "Categories" },
             { value: "Free", label: "Always free" },
           ].map((s) => (
-            <div key={s.label} className="bg-[#12121a] border border-[#1e1e2e] rounded-xl py-4 px-3">
+            <div key={s.label} className="bg-card border border-card-border rounded-xl py-4 px-3">
               <div className="text-2xl font-bold gradient-text">{s.value}</div>
-              <div className="text-[#8888aa] text-sm mt-1">{s.label}</div>
+              <div className="text-muted text-sm mt-1">{s.label}</div>
             </div>
           ))}
         </div>
@@ -73,7 +73,7 @@ export default function HomePage() {
       <section className="py-12 px-4 sm:px-6 max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-xl font-bold">Browse by Category</h2>
-          <Link href="/servers" className="text-brand-400 hover:text-brand-300 text-sm flex items-center gap-1">
+          <Link href="/servers" className="text-brand-500 hover:text-brand-600 dark:text-brand-400 dark:hover:text-brand-300 text-sm flex items-center gap-1">
             View all <ArrowRight size={14} />
           </Link>
         </div>
@@ -85,11 +85,11 @@ export default function HomePage() {
               <Link
                 key={cat}
                 href={`/category/${cat}`}
-                className="card-hover bg-[#12121a] border border-[#1e1e2e] rounded-xl p-4 text-center flex flex-col items-center gap-2"
+                className="card-hover bg-card border border-card-border rounded-xl p-4 text-center flex flex-col items-center gap-2"
               >
                 <span className="text-2xl">{info.icon}</span>
-                <span className="text-sm font-medium text-white">{info.label}</span>
-                <span className="text-xs text-[#8888aa]">{count} servers</span>
+                <span className="text-sm font-medium text-foreground">{info.label}</span>
+                <span className="text-xs text-muted">{count} servers</span>
               </Link>
             );
           })}
@@ -100,7 +100,7 @@ export default function HomePage() {
       <section className="py-12 px-4 sm:px-6 max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-xl font-bold">Featured Servers</h2>
-          <Link href="/servers" className="text-brand-400 hover:text-brand-300 text-sm flex items-center gap-1">
+          <Link href="/servers" className="text-brand-500 hover:text-brand-600 dark:text-brand-400 dark:hover:text-brand-300 text-sm flex items-center gap-1">
             View all {totalServers} <ArrowRight size={14} />
           </Link>
         </div>
@@ -116,17 +116,17 @@ export default function HomePage() {
         <div className="flex items-center justify-between mb-2">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-xs font-medium text-brand-400 uppercase tracking-wider">OpenClaw Skills</span>
-              <span className="text-xs bg-brand-900/40 text-brand-300 px-2 py-0.5 rounded-full border border-brand-700/30">New</span>
+              <span className="text-xs font-medium text-brand-500 dark:text-brand-400 uppercase tracking-wider">OpenClaw Skills</span>
+              <span className="text-xs bg-brand-50 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 px-2 py-0.5 rounded-full border border-brand-200 dark:border-brand-700/30">New</span>
             </div>
             <h2 className="text-xl font-bold">Featured OpenClaw Skills</h2>
           </div>
-          <Link href="/skills" className="text-brand-400 hover:text-brand-300 text-sm flex items-center gap-1">
+          <Link href="/skills" className="text-brand-500 hover:text-brand-600 dark:text-brand-400 dark:hover:text-brand-300 text-sm flex items-center gap-1">
             View all {totalSkills} <ArrowRight size={14} />
           </Link>
         </div>
-        <p className="text-[#8888aa] text-sm mb-6">
-          Skills extend Claude with deep domain knowledge — install with one command via <code className="bg-[#12121a] text-brand-300 px-1 rounded">clawhub install</code>
+        <p className="text-muted text-sm mb-6">
+          Skills extend Claude with deep domain knowledge — install with one command via <code className="bg-card border border-card-border text-brand-600 dark:text-brand-300 px-1.5 py-0.5 rounded text-xs">clawhub install</code>
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {featuredSkills.slice(0, 6).map((skill) => (
@@ -144,7 +144,7 @@ export default function HomePage() {
               step: "01",
               icon: <Search size={22} />,
               title: "Find a server",
-              desc: "Browse MCPHub by category or search for the tool you need.",
+              desc: "Browse MCPSkills by category or search for the tool you need.",
             },
             {
               step: "02",
@@ -161,16 +161,16 @@ export default function HomePage() {
           ].map((step) => (
             <div
               key={step.step}
-              className="bg-[#12121a] border border-[#1e1e2e] rounded-xl p-6 relative"
+              className="bg-card border border-card-border rounded-xl p-6 relative overflow-hidden"
             >
-              <span className="text-5xl font-black text-[#1e1e2e] absolute top-4 right-4">
+              <span className="text-5xl font-black text-card-border absolute top-4 right-4 select-none">
                 {step.step}
               </span>
-              <div className="bg-brand-900/40 text-brand-400 w-10 h-10 rounded-lg flex items-center justify-center mb-4">
+              <div className="bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 w-10 h-10 rounded-lg flex items-center justify-center mb-4">
                 {step.icon}
               </div>
-              <h3 className="font-semibold text-white mb-2">{step.title}</h3>
-              <p className="text-[#8888aa] text-sm leading-relaxed">{step.desc}</p>
+              <h3 className="font-semibold text-foreground mb-2">{step.title}</h3>
+              <p className="text-muted text-sm leading-relaxed">{step.desc}</p>
             </div>
           ))}
         </div>
@@ -178,11 +178,11 @@ export default function HomePage() {
 
       {/* CTA */}
       <section className="py-16 px-4 sm:px-6">
-        <div className="max-w-2xl mx-auto text-center bg-gradient-to-br from-brand-900/40 to-[#12121a] border border-brand-700/30 rounded-2xl p-10">
-          <Plus size={32} className="text-brand-400 mx-auto mb-4" />
+        <div className="max-w-2xl mx-auto text-center bg-gradient-to-br from-brand-50 dark:from-brand-900/40 to-card border border-brand-200 dark:border-brand-700/30 rounded-2xl p-10">
+          <Plus size={32} className="text-brand-600 dark:text-brand-400 mx-auto mb-4" />
           <h2 className="text-2xl font-bold mb-3">Built an MCP Server?</h2>
-          <p className="text-[#8888aa] mb-6">
-            Submit your server to MCPHub and reach thousands of developers looking for new tools.
+          <p className="text-muted mb-6">
+            Submit your server to MCPSkills and reach thousands of developers looking for new tools.
           </p>
           <Link
             href="/submit"

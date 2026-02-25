@@ -2,12 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Light mode (default) ── */
 :root {
+  --background: #ffffff;
+  --foreground: #111827;
+  --card: #f9f9fc;
+  --card-border: #e2e2f0;
+  --muted: #6b7280;
+  --secondary: #4b5563;
+  --badge-bg: #f3f4f6;
+  --code-color: #7c3aed;
+}
+
+/* ── Dark mode ── */
+html.dark {
   --background: #0a0a0f;
   --foreground: #f0f0f8;
   --card: #12121a;
   --card-border: #1e1e2e;
   --muted: #8888aa;
+  --secondary: #aaaacc;
+  --badge-bg: #1e1e2e;
+  --code-color: #c4b5fd;
 }
 
 * { box-sizing: border-box; }
@@ -17,9 +33,17 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans, system-ui, sans-serif);
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .gradient-text {
+  background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+html.dark .gradient-text {
   background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -36,5 +60,15 @@ body {
 }
 
 .glow {
-  box-shadow: 0 0 40px #7c3aed44, 0 0 80px #7c3aed11;
+  box-shadow: 0 0 30px #7c3aed33, 0 0 60px #7c3aed11;
+}
+
+/* Used in blog markdown renderer (dangerouslySetInnerHTML — dark: variants not usable there) */
+.blog-inline-code {
+  background: var(--badge-bg);
+  color: var(--code-color);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  font-size: 0.875em;
+  font-family: var(--font-geist-mono, monospace);
 }
