@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Star, Github, Shield, ArrowLeft, Copy, ExternalLink } from "lucide-react";
 import ServerCard from "@/components/ServerCard";
+import { SaveToCollection } from "@/components/SaveToCollection";
 import { SERVERS, CATEGORIES, getServerBySlug } from "@/data/servers";
 
 interface Props {
@@ -67,6 +68,9 @@ export default function ServerPage({ params }: Props) {
               </div>
               <h1 className="text-2xl sm:text-3xl font-bold text-foreground">{server.name}</h1>
               <p className="text-muted mt-1">by {server.author}</p>
+              <div className="mt-3">
+                <SaveToCollection itemSlug={server.slug} itemType="server" itemName={server.name} />
+              </div>
             </div>
           </div>
 

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Star, Download, Shield, ArrowLeft, ExternalLink, Terminal } from "lucide-react";
 import SkillCard from "@/components/SkillCard";
+import { SaveToCollection } from "@/components/SaveToCollection";
 import { SKILLS, SKILL_CATEGORIES, getSkillBySlug } from "@/data/skills";
 
 interface Props { params: { slug: string } }
@@ -54,6 +55,9 @@ export default function SkillPage({ params }: Props) {
               </div>
               <h1 className="text-2xl sm:text-3xl font-bold text-foreground">{skill.name}</h1>
               <p className="text-muted mt-1">by {skill.author}</p>
+              <div className="mt-3">
+                <SaveToCollection itemSlug={skill.slug} itemType="skill" itemName={skill.name} />
+              </div>
             </div>
           </div>
 

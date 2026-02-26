@@ -3,14 +3,15 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X, Zap } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import { AuthButton } from "./AuthButton";
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
   const links = [
     { href: "/servers", label: "MCP Servers" },
     { href: "/skills", label: "Skills" },
+    { href: "/collections", label: "Collections" },
     { href: "/blog", label: "Blog" },
-    { href: "/submit", label: "Submit" },
   ];
   return (
     <nav className="sticky top-0 z-50 border-b border-card-border bg-background/80 backdrop-blur-xl">
@@ -33,6 +34,7 @@ export default function Navigation() {
               </Link>
             ))}
             <ThemeToggle />
+            <AuthButton />
             <Link
               href="/submit"
               className="bg-brand-600 hover:bg-brand-500 text-white text-sm px-4 py-2 rounded-lg transition-colors"
