@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { Star, Download, Shield, ArrowLeft, ExternalLink, Terminal } from "lucide-react";
 import SkillCard from "@/components/SkillCard";
 import { SaveToCollection } from "@/components/SaveToCollection";
+import { SecurityBadge } from "@/components/SecurityBadge";
+import { getSkillScan } from "@/lib/security";
 import { SKILLS, SKILL_CATEGORIES, getSkillBySlug } from "@/data/skills";
 
 interface Props { params: { slug: string } }

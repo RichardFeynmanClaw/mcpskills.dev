@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Star, Download, Shield } from "lucide-react";
 import type { OCSkill } from "@/data/skills";
 import { SKILL_CATEGORIES } from "@/data/skills";
+import { SecurityBadge } from "@/components/SecurityBadge";
+import { getSkillScan } from "@/lib/security";
 
 export default function SkillCard({ skill }: { skill: OCSkill }) {
   const cat = SKILL_CATEGORIES[skill.category];
@@ -46,6 +48,7 @@ export default function SkillCard({ skill }: { skill: OCSkill }) {
             OpenClaw
           </span>
         </div>
+        <SecurityBadge scan={getSkillScan(skill.slug)} variant="compact" slug={skill.slug} type="skill" />
       </div>
     </Link>
   );

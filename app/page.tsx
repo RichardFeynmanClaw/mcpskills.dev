@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Zap, Search, BookOpen, Plus } from "lucide-react";
+import { ArrowRight, Zap, Search, BookOpen, Plus, ShieldCheck } from "lucide-react";
 import ServerCard from "@/components/ServerCard";
 import SkillCard from "@/components/SkillCard";
 import { SERVERS, CATEGORIES, getFeaturedServers, getCategories } from "@/data/servers";
@@ -132,6 +132,28 @@ export default function HomePage() {
           {featuredSkills.slice(0, 6).map((skill) => (
             <SkillCard key={skill.slug} skill={skill} />
           ))}
+        </div>
+      </section>
+
+      {/* TRUST / SECURITY BANNER */}
+      <section className="py-10 px-4 sm:px-6 max-w-7xl mx-auto">
+        <div className="bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900/50 rounded-2xl px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div className="flex items-center gap-3 shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center">
+              <ShieldCheck size={20} className="text-emerald-600 dark:text-emerald-400" />
+            </div>
+            <div>
+              <p className="font-semibold text-emerald-900 dark:text-emerald-300 text-sm">Security scanned &amp; verified</p>
+              <p className="text-emerald-700 dark:text-emerald-500 text-xs">Every listing on MCPSkills</p>
+            </div>
+          </div>
+          <p className="text-sm text-emerald-800 dark:text-emerald-400 leading-relaxed flex-1">
+            Every MCP server and OpenClaw Skill is scanned for vulnerabilities, credential harvesting,
+            phishing, and malicious code before it appears in the directory — and re-scanned on every update.
+          </p>
+          <a href="/security" className="shrink-0 text-xs font-medium text-emerald-700 dark:text-emerald-400 hover:underline flex items-center gap-1 whitespace-nowrap">
+            How it works <ArrowRight size={12} />
+          </a>
         </div>
       </section>
 

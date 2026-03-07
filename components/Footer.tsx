@@ -38,6 +38,7 @@ export default function Footer() {
                 { href: "/blog/what-is-mcp", label: "What is MCP?" },
                 { href: "/blog/getting-started-mcp-guide", label: "Getting Started" },
                 { href: "/submit", label: "Submit" },
+              { href: "/security", label: "Security" },
               ].map((l) => (
                 <li key={l.href}>
                   <Link href={l.href} className="text-muted hover:text-foreground text-sm transition-colors">

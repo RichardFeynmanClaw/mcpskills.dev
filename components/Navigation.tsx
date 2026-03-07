@@ -12,6 +12,7 @@ export default function Navigation() {
     { href: "/skills", label: "Skills" },
     { href: "/collections", label: "Collections" },
     { href: "/blog", label: "Blog" },
+    { href: "/security", label: "Security" },
   ];
   return (
     <nav className="sticky top-0 z-50 border-b border-card-border bg-background/80 backdrop-blur-xl">

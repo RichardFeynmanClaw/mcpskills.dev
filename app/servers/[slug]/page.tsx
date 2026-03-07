@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { Star, Github, Shield, ArrowLeft, Copy, ExternalLink } from "lucide-react";
 import ServerCard from "@/components/ServerCard";
 import { SaveToCollection } from "@/components/SaveToCollection";
+import { SecurityBadge } from "@/components/SecurityBadge";
+import { getServerScan } from "@/lib/security";
 import { SERVERS, CATEGORIES, getServerBySlug } from "@/data/servers";
 
 interface Props {
@@ -80,6 +82,9 @@ export default function ServerPage({ params }: Props) {
             <h2 className="font-semibold text-foreground mb-4">About</h2>
             <p className="text-muted leading-relaxed">{server.longDescription}</p>
           </div>
+
+          {/* Security report */}
+          <SecurityBadge scan={getServerScan(server.slug)} variant="full" slug={server.slug} type="server" />
 
           {/* Tags */}
           {server.tags.length > 0 && (

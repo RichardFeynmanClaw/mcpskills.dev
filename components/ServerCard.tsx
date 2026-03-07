@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Star, Shield } from "lucide-react";
 import type { MCPServer } from "@/data/servers";
+import { SecurityBadge } from "@/components/SecurityBadge";
+import { getServerScan } from "@/lib/security";
 import { CATEGORIES } from "@/data/servers";
 
 export default function ServerCard({ server }: { server: MCPServer }) {
@@ -40,6 +42,7 @@ export default function ServerCard({ server }: { server: MCPServer }) {
             {server.language}
           </span>
         </div>
+        <SecurityBadge scan={getServerScan(server.slug)} variant="compact" slug={server.slug} type="server" />
       </div>
     </Link>
   );
