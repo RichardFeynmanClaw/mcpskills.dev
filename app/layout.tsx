@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mcpskills.app"),
@@ -48,6 +49,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="flex-1">{children}</main>
           <Footer />
           <Analytics />
+          {process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
+            <Script
+              defer
+              src="https://cloud.umami.is/script.js"
+              data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+            />
+          )}
         </ThemeProvider>
       </body>
     </html>
