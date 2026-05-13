@@ -343,7 +343,7 @@ export const SKILLS: OCSkill[] = [
     featured: false,
     verified: true,
     installCommand: "openclaw plugins install @xquik/tweetclaw",
-    clawhubUrl: "https://clawhub.ai/kriptoburak/xquik-tweetclaw",
+    clawhubUrl: "https://clawhub.ai/plugins/@xquik/tweetclaw",
     version: "1.6.29",
   },
   // ── AI & LLM ─────────────────────────────────────────────────────────────────
