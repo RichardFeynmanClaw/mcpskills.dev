@@ -338,13 +338,13 @@ export const SKILLS: OCSkill[] = [
     category: "communication",
     tags: ["x-twitter", "twitter", "tweet-search", "tweet-replies", "follower-export", "webhooks", "automation"],
     author: "Xquik",
-    stars: 37,
+    stars: 38,
     installs: 3682,
     featured: false,
     verified: true,
     installCommand: "openclaw plugins install @xquik/tweetclaw",
     clawhubUrl: "https://clawhub.ai/plugins/@xquik/tweetclaw",
-    version: "1.6.29",
+    version: "1.6.31",
   },
   // ── AI & LLM ─────────────────────────────────────────────────────────────────
   {
