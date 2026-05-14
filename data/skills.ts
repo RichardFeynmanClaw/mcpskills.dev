@@ -330,6 +330,22 @@ export const SKILLS: OCSkill[] = [
     version: "1.1.0",
     requiredTools: ["wacli"],
   },
+  {
+    slug: "tweetclaw",
+    name: "TweetClaw",
+    description: "OpenClaw X/Twitter automation for tweet search, replies, follower export, monitors, webhooks, and approved posting.",
+    longDescription: "TweetClaw is the Xquik OpenClaw plugin for structured X/Twitter workflows. Search tweets, search tweet replies, export followers, look up users, upload or download media, manage direct messages, monitor tweets, deliver webhooks, run giveaway draws, and post tweets or replies after approval.",
+    category: "communication",
+    tags: ["x-twitter", "twitter", "tweet-search", "tweet-replies", "follower-export", "webhooks", "automation"],
+    author: "Xquik",
+    stars: 38,
+    installs: 3682,
+    featured: false,
+    verified: true,
+    installCommand: "openclaw plugins install @xquik/tweetclaw",
+    clawhubUrl: "https://clawhub.ai/plugins/@xquik/tweetclaw",
+    version: "1.6.31",
+  },
   // ── AI & LLM ─────────────────────────────────────────────────────────────────
   {
     slug: "prompt-engineer",
